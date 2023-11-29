@@ -1,0 +1,30 @@
+
+
+<head>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">IsMYPasswordSAFE!!</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/breached_web">Breached Websites</a>
+            </li>
+            {% comment %} <li class="nav-item">
+                <a class="nav-link" href="{{"about url"}}">About</a>
+            </li> {% endcomment %}
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+

@@ -1,0 +1,49 @@
+{% include "myPassword/base.html" %}
+
+<div>
+
+{% block content %}
+
+{% if messages %}
+            <div class="alert alert-danger alert-dismissible fade show col-md-9 mx-auto" role="alert">
+                <h2 class="text_center">Password Strength Weak!</h2>
+                <ul>
+                    {% for message in messages%}
+                    <li>{{message}}</li>
+                    {% endfor %}
+                    <li>
+                        We strongly recommend you to read the
+                        <a href="https://en.wikipedia.org/wiki/Password_strength#Guidelines_for_strong_passwords"
+                           target="_blank"> guidelines for strong password here.</a>
+                    </li>
+                </ul>
+                
+            </div>
+            {% endif %}
+            
+            {%if breach_message%}
+            <div class="alert alert-success alert-dismissible fade show col-md-9 mx-auto" role="alert">
+                <p>
+                    {{breach_message}}
+                </p>
+            </div>
+            {%endif%}
+
+<div class="col-md-9 px-0 py-4 mx-auto">
+<form action="/name" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+</div>
+
+<div class="col-md-9 px-0 mx-auto">
+    <h7>
+        Check here if your password has ever been compromised in a data breach. Breached passwords
+        are not suitable for usage. We also provide necessary information regarding your password
+        strength.
+    </h7>
+</div>
+{%endblock%}
+
+</div>
